@@ -30,11 +30,10 @@ int main() {
     string plaintext = "MONEYISAGOODSER";
     string key = "EVERYONE";
 
-    // Chuyển plaintext thành chữ hoa
     for (char &ch : plaintext) {
         ch = toupper(ch);
     }
-     // Chuyển khóa thành chữ hoa
+    
     for (char &ch : key) {
         ch = toupper(ch);
     }
