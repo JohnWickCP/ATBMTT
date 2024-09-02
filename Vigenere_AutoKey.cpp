@@ -2,18 +2,10 @@
 #include <string>
 
 using namespace std;
-
-string toUpperCase(string text) {
-    string upperText = text;
-    for (char &c : upperText) {
-        c = toupper(c);
-    }
-    return upperText;
-}
-
+// Hàm để cộng Key vs planitext
 string generateAutoKey(string plaintext, string key) {
     string autoKey = key + plaintext;  
-    return autoKey.substr(0, plaintext.length());  
+    return autoKey.substr(0, plaintext.length()); // Xóa bớt string để bằng vs length của plaintext
 }
 
 string vigenereAutoKeyEncrypt(string plaintext, string key) {
@@ -33,10 +25,7 @@ string vigenereAutoKeyEncrypt(string plaintext, string key) {
 int main() {
     string plaintext = "MONEYISAGOODSER";
     string key = "EVERYONE";
-
-    plaintext = toUpperCase(plaintext);
-    key = toUpperCase(key);
-
+    
     string ciphertext = vigenereAutoKeyEncrypt(plaintext, key);
     cout << "Ciphertext: " << ciphertext << endl;
 

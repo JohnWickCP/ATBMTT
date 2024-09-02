@@ -2,7 +2,7 @@
 #include <string>
 
 using namespace std;
-
+// Hàm để lặp khóa
 string generateKey(string plaintext, string key) {
 
     string repeatedKey = key;
@@ -11,7 +11,7 @@ string generateKey(string plaintext, string key) {
     }
     return repeatedKey.substr(0, plaintext.length());
 }
-
+// Hàm để mã hóa
 string vigenereEncrypt(string plaintext, string key) {
 
     string ciphertext;
@@ -29,14 +29,6 @@ string vigenereEncrypt(string plaintext, string key) {
 int main() {
     string plaintext = "MONEYISAGOODSER";
     string key = "EVERYONE";
-
-    for (char &ch : plaintext) {
-        ch = toupper(ch);
-    }
-    
-    for (char &ch : key) {
-        ch = toupper(ch);
-    }
 
     string repeatedKey = generateKey(plaintext, key);
     string ciphertext = vigenereEncrypt(plaintext, repeatedKey);
