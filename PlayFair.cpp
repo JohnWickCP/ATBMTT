@@ -41,7 +41,7 @@ vector<vector<char>> createMatrix(const string &key) {
 }
 
 // Hàm tìm vị trí của ký tự trong ma trận
-pair<int, int> findPosition(const vector<vector<char>> &matrix, char c) {
+pair<int, int> findPosition(vector<vector<char>> matrix, char c) {
     if (c == 'J') c = 'I'; // Gộp J với I
     for (int i = 0; i < 5; i++) {
         for (int j = 0; j < 5; j++) {
@@ -54,7 +54,7 @@ pair<int, int> findPosition(const vector<vector<char>> &matrix, char c) {
 }
 
 // Hàm xử lý plaintext thành các cặp ký tự
-string processPlaintext(const string &plaintext) {
+string processPlaintext(string plaintext) {
     string processedText = "";
     for (char c : plaintext) {
         if (isalpha(c)) {
@@ -82,7 +82,7 @@ string processPlaintext(const string &plaintext) {
 }
 
 // Hàm mã hóa với thuật toán Playfair
-string playfairEncrypt(const string &plaintext, const vector<vector<char>> &matrix) {
+string playfairEncrypt(string plaintext, vector<vector<char>> matrix) {
     string ciphertext = "";
     string pairs = processPlaintext(plaintext);
 
@@ -119,10 +119,7 @@ int main() {
     // Tạo ma trận Playfair từ khóa
     vector<vector<char>> matrix = createMatrix(key);
 
-    // Mã hóa plaintext bằng thuật toán Playfair
     string ciphertext = playfairEncrypt(plaintext, matrix);
-
-    // In kết quả
     cout << "Ciphertext: " << ciphertext << endl;
 
     return 0;
